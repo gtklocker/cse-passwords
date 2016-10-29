@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
     <h2>Here are all the passwords we currently have</h2>
-    <ul class='urls'>
-        {% for url in urls %}
-            <li>
-                <div>
-                    URL: <a href='{{ url.url }}'>{{ url.url }}</a>
-                </div>
-                <div>
-                    Username: {{ url.user|safe }}
-                </div>
-                <div>
-                    Password: {{ url.pass|safe }}
-                </div>
-            </li>
-        {% else %}
-            <li>No URLs, yet!</li>
-        {% endfor %}
-    </ul>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in urls %}
+                <tr>
+                    <td>
+                        <a href='{{ url.url }}'>{{ url.url }}</a>
+                    </td>
+                    <td>
+                        {{ url.user|safe }}
+                    </td>
+                    <td>
+                        {{ url.pass|safe }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <a href='/submit'>Submit one!</a>
 {% endblock %}
