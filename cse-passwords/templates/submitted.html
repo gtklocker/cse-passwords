@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CSE passwords</title>
-    </head>
-    <body>
-        <h1>CSE passwords</h1>
-        {% if error %}
-            <p>Looks like you didn't enter the correct password! 😰</p>
-        {% else %}
-            <p>Your password is successfully registered! 🎉</p>
-        {% endif %}
+{% extends "base.html" %}
+{% block content %}
+    {% if error %}
+        <p>Looks like you didn't enter the correct password! 😰</p>
+    {% else %}
+        <p>Your password is successfully registered! 🎉</p>
+    {% endif %}
 
-        <a href='/'>Go back</a>
-    </body>
-</html>
+    <a href='/'>Go back</a>
+{% endblock %}

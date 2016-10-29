@@ -1,29 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CSE passwords</title>
-    </head>
-    <body>
-        <h1>CSE passwords</h1>
-        <h2>Submit your own passwords!</h2>
+{% extends "base.html" %}
+{% block content %}
+    <h2>Submit your own passwords!</h2>
 
-        <form action='/submit' method='post' autocomplete='nope'>
-            <div>
-                <label for='url'>URL:</label>
-                <input type='url' id='url' name='url' pattern='https?://.+' required />
-            </div>
-            <div>
-                <label for='user'>Username:</label>
-                <input type='text' id='user' name='user' required />
-            </div>
-            <div>
-                <label for='pass'>Password:</label>
-                <input type='text' id='pass' name='pass' required />
-            </div>
+    <form action='/submit' method='post' autocomplete='nope'>
+        <div>
+            <label for='url'>URL:</label>
+            <input type='url' id='url' name='url' pattern='https?://.+' required />
+        </div>
+        <div>
+            <label for='user'>Username:</label>
+            <input type='text' id='user' name='user' required />
+        </div>
+        <div>
+            <label for='pass'>Password:</label>
+            <input type='text' id='pass' name='pass' required />
+        </div>
 
-            <div>
-                <button type='submit'>Submit</button>
-            </div>
-        </form>
-    </body>
-</html>
+        <div>
+            <button type='submit'>Submit</button>
+        </div>
+    </form>
+{% endblock %}
