@@ -12,7 +12,12 @@
         </style>
     </head>
     <body>
-        <h1>CSE passwords</h1>
+        <header>
+            <h1>CSE passwords</h1>
+
+            {% block header %}
+            {% endblock %}
+        </header>
         {% block content %}
         {% endblock %}
     </body>
