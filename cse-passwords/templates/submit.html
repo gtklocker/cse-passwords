@@ -1,29 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>CSE passwords</title>
-    </head>
-    <body>
-        <h1>CSE passwords</h1>
-        <h2>Submit your own passwords!</h2>
+{% extends "base.html" %}
+{% block header %}
+    <h2>Submit your own passwords!</h2>
+{% endblock %}
+{% block content %}
+    <form action='/submit' method='post' autocomplete='nope'>
+        <div class='form-group row'>
+            <label for='url' class='col-sm-2 col-form-label'>URL</label>
+            <div class='col-sm-10'>
+                <input type='url' id='url' name='url' pattern='https?://.+' class='form-control' placeholder='URL' required />
+            </div>
+        </div>
+        <div class='form-group row'>
+            <label for='user' class='col-sm-2 col-form-label'>Username</label>
+            <div class='col-sm-10'>
+                <input type='text' id='user' name='user' class='form-control' placeholder='Username' required />
+            </div>
+        </div>
+        <div class='form-group row'>
+            <label for='pass' class='col-sm-2 col-form-label'>Password</label>
+            <div class='col-sm-10'>
+                <input type='text' id='pass' name='pass' class='form-control' placeholder='Password' required />
+            </div>
+        </div>
 
-        <form action='/submit' method='post' autocomplete='nope'>
-            <div>
-                <label for='url'>URL:</label>
-                <input type='url' id='url' name='url' pattern='https?://.+' required />
+        <div class='form-group row'>
+            <div class='offset-sm-2 col-sm-10'>
+                <button type='submit' class='btn btn-primary'>Submit</button>
             </div>
-            <div>
-                <label for='user'>Username:</label>
-                <input type='text' id='user' name='user' required />
-            </div>
-            <div>
-                <label for='pass'>Password:</label>
-                <input type='text' id='pass' name='pass' required />
-            </div>
-
-            <div>
-                <button type='submit'>Submit</button>
-            </div>
-        </form>
-    </body>
-</html>
+        </div>
+    </form>
+{% endblock %}

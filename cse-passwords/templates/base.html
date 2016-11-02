@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <meta http-equiv='x-ua-compatible' content='ie=edge'>
+
+        <title>CSE passwords</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css' integrity='sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi' crossorigin='anonymous' />
+
+        <style>
+            body {
+                max-width: 60%;
+                margin: auto;
+                padding-top: 5rem;
+            }
+
+            header {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class='navbar navbar-fixed-top navbar-dark bg-inverse'>
+            <a class='navbar-brand' href='/'>CSE passwords</a>
+            <ul class='nav navbar-nav'>
+                <li class='nav-item {% if page == "home" %}active{% endif %}'>
+                    <a class='nav-link' href='/'>Home</a>
+                </li>
+                <li class='nav-item {% if page == "submit" %}active{% endif %}'>
+                    <a class='nav-link' href='/submit'>Submit</a>
+                </li>
+            </ul>
+        </nav>
+        <header>
+            {% block header %}
+            {% endblock %}
+        </header>
+        <div class='container'>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
