@@ -50,7 +50,7 @@ def do_submit():
 
 @app.route('/submit', methods=['GET'])
 def view_submit():
-    return render_template('submit.html')
+    return render_template('submit.html', page='submit')
 
 # TODO: modify redis connection to encode/decode automatically and remove this
 decode_dict = lambda strdict: {k.decode('utf8'): v.decode('utf8') for k, v in strdict.items()}
@@ -60,5 +60,5 @@ def index():
     urls = []
     for url_id in redis_store.lrange('url_ids', 0, -1):
         urls.append(redis_store.hgetall('url:%d' % int(url_id)))
-    return render_template('index.html', urls=map(decode_dict, urls))
+    return render_template('index.html', page='home', urls=map(decode_dict, urls))
     #return str(are_correct_credentials('http://www.cs.uoi.gr/~stergios/teaching/mye007/lectures/lectures_gr.html', ('mye007sec16', 'mye007sec16')))

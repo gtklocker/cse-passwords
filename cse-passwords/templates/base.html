@@ -12,6 +12,7 @@
             body {
                 max-width: 60%;
                 margin: auto;
+                padding-top: 5rem;
             }
 
             header {
@@ -20,13 +21,24 @@
         </style>
     </head>
     <body>
+        <nav class='navbar navbar-fixed-top navbar-dark bg-inverse'>
+            <a class='navbar-brand' href='/'>CSE passwords</a>
+            <ul class='nav navbar-nav'>
+                <li class='nav-item {% if page == "home" %}active{% endif %}'>
+                    <a class='nav-link' href='/'>Home</a>
+                </li>
+                <li class='nav-item {% if page == "submit" %}active{% endif %}'>
+                    <a class='nav-link' href='/submit'>Submit</a>
+                </li>
+            </ul>
+        </nav>
         <header>
-            <h1>CSE passwords</h1>
-
             {% block header %}
             {% endblock %}
         </header>
-        {% block content %}
-        {% endblock %}
+        <div class='container'>
+            {% block content %}
+            {% endblock %}
+        </div>
     </body>
 </html>
